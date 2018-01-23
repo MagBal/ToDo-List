@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700,800,900');
+.Title {
+	text-align: center;
+	font-size: 30px;
+	font-family: 'Poppins', sans-serif;
+	color: #FFF;
+}

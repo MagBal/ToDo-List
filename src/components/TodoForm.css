@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700,800,900');
+
+.TodoForm {
+	font-family: 'Poppins', sans-serif;
+	font-size: 25px;
+}
+input {
+	width: 250px;
+	height: 35px;
+	border-radius: 5px;
+	padding: 5px;
+	font-size: 25px;}
+button {
+	width: 70px;
+	height: 35px;
+	background-color: #FF9900;
+	border-radius: 2px;
+	color: #FFF;
+	padding: 2px 5px;
+	font-size: 20px;
+	font-weight: 700;
+	border: none;
+	margin-left: 10px;
+	transition: .3s;
+}
+button:hover {
+	background-color: #6699ff;
+	opacity: 0.8;
+	cursor: pointer;
+}
+

@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,700,800,900');
+
+body {
+	counter-reset: item;
+	font-family: 'Poppins', sans-serif;
+	font-size: 25px;
+ }
+ ol {
+	list-style: none;
+ }
+ li {
+ 	counter-increment: item;
+   	margin-bottom: 5px;
+ }
+ li:before {
+	margin-right: 10px;
+	content: counter(item);
+	background: #00ccff;
+	border-radius: 100%;
+	color: #FFF;
+	width: 1.5em;
+	text-align: center;
+	display: inline-block;
+ }
+ li:hover {
+	cursor: pointer;
+	color: #00ccff ;
+ }
