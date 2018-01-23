@@ -28,7 +28,6 @@
   },
   "dependencies": {
     "npm": "^5.6.0",
-    "react-flip-move": "^3.0.0",
     "uuid": "^3.2.1"
   }
 }

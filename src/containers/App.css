@@ -1,5 +1,6 @@
 .TodoApp {
-    background-color: #000080;
+    background: repeating-linear-gradient(left, #0033cc 10%, #000066 20%, #0033cc 30%);
+    background: -webkit-repeating-linear-gradient(left, #0033cc 10%, #000066 20%, #0033cc 30%);
     color: #FFF;
     display: flex;
     flex-direction: column;
@@ -10,3 +11,4 @@
     width: 100vw;
     height: 100vh;
 }
+

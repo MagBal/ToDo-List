@@ -1,8 +1,50 @@
+var webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
-const webpack = require("webpack");
-const HTMLWebpackPlugin = require("html-webpack-plugin");
-const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
-const OptimizeJsPlugin = require("optimize-js-plugin");
+var UglifyJSPlugin = require("uglifyjs-webpack-plugin");
+var OptimizeJsPlugin = require("optimize-js-plugin");
+
+module.exports = {
+  entry: ["react-hot-loader/patch", "./src/index.js"],
+  output: {
+    filename: "app.bundle.js",
+    path: path.resolve(__dirname + "/build")
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        loader: "babel-loader",
+        options: {
+          presets: ["es2015"]
+        }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          { loader: "style-loader" },
+          {
+            loader: "css-loader",
+            options: {
+              module: true
+            }
+          }
+        ]
+      }
+    ]
+  },
+  plugins: [
+    new OptimizeJsPlugin({
+      sourceMap: false
+    }),
+    new webpack.optimize.UglifyJsPlugin(),
+    new HtmlWebpackPlugin({
+      template: "./src/index.html",
+      filename: "index.html",
+      inject: "body"
+    })
+  ]
+};
 
 var env = process.env.NODE_ENV || "development";
 var plugins = [
@@ -23,32 +65,3 @@ if (env === "production") {
     })
   );
 }
-
-module.exports = {
-  entry: ["react-hot-loader/patch", "./src/index.js"],
-  output: {
-    path: path.resolve(__dirname, "./build"),
-    filename: "app.bundle.js"
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        loader: "babel-loader"
-      },
-      {
-        test: /\.css$/,
-        use: [
-          { loader: "style-loader" },
-          {
-            loader: "css-loader",
-            options: {
-              modules: true
-            }
-          }
-        ]
-      }
-    ]
-  },
-  plugins: plugins
-};
